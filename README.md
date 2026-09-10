@@ -51,7 +51,33 @@ as independent verification.
   without Opus access the gate cannot run as designed.
 - The primary session should be set to Sonnet. A skill cannot change the primary session's
   model - that is your selection.
-- POSIX `sh` for the install script.
+- POSIX `sh` for the install script only. Not needed if you install the plugin through
+  the marketplace.
+
+## Platform support
+
+| | Plugin install (marketplace) | `install-agents.sh` |
+| --- | --- | --- |
+| Linux | yes | yes |
+| macOS | yes | yes |
+| Windows (WSL, Git Bash) | yes | yes |
+| Windows (native cmd/PowerShell) | yes | no - needs a POSIX shell |
+
+The plugin itself - the skill, references, agent, and manifests - is plain text loaded by
+Claude Code and is platform-independent. Only the optional install script needs a POSIX
+shell; on native Windows without WSL or Git Bash, install through the marketplace instead,
+or copy `plugins/sonnet-opus-gate/agents/reviewer.md` into `%USERPROFILE%\.claude\agents\`
+by hand.
+
+Line endings matter here: CRLF breaks both the script's shebang and the `model: opus` pin
+check. The repository ships a `.gitattributes` pinning `eol=lf`, so a Windows clone gets
+LF working files, and the script's pin check also tolerates a stray CR. If `HOME` in your
+Git Bash environment does not point at your Windows user profile, pass the destination
+explicitly:
+
+```
+plugins/sonnet-opus-gate/scripts/install-agents.sh --target-dir "$USERPROFILE/.claude/agents"
+```
 
 ## Install
 

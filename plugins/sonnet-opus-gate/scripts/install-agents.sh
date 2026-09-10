@@ -80,7 +80,7 @@ fi
 
 destination="$target_dir/$agent_name"
 
-grep -q '^model: opus$' "$template" ||
+grep -q '^model: opus[[:space:]]*$' "$template" ||
   fail "template is not pinned to Opus: $template"
 
 if [ "$check_only" -eq 1 ]; then
@@ -89,7 +89,7 @@ if [ "$check_only" -eq 1 ]; then
     fail "destination is not a regular file: $destination"
   cmp -s "$template" "$destination" ||
     fail "destination differs from template: $destination"
-  grep -q '^model: opus$' "$destination" ||
+  grep -q '^model: opus[[:space:]]*$' "$destination" ||
     fail "installed agent is not pinned to Opus: $destination"
   printf 'ok: %s matches the template and is pinned to Opus\n' "$destination"
   exit 0
