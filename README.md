@@ -110,14 +110,27 @@ plugins/sonnet-opus-gate/scripts/install-agents.sh --check
 
 ## Usage
 
-With the plugin installed, invoke the orchestration skill at the start of a task:
+The shortcut is `/claude-gate`:
+
+```
+/claude-gate add a --version flag to the install script
+```
+
+The session then plans, builds, self-verifies, hands off to the Opus reviewer, and reports
+the combined result. Set the session to Sonnet first (`/model sonnet`) - a plugin cannot
+switch your primary model, and the Opus lane arrives through the subagent either way.
+
+If another plugin defines the same command name, use the namespaced form:
+
+```
+/sonnet-opus-gate:claude-gate add a --version flag to the install script
+```
+
+You can also invoke the skill directly, without the command:
 
 ```
 Use the sonnet-opus-gate orchestration skill, then build and verify this feature.
 ```
-
-The session then plans, builds, self-verifies, hands off to the Opus reviewer, and reports
-the combined result.
 
 ## Acceptance criteria
 
@@ -142,6 +155,7 @@ A task delivered under this workflow satisfies all of the following:
 plugins/sonnet-opus-gate/
   .claude-plugin/plugin.json
   agents/reviewer.md                       Opus-pinned reviewer subagent
+  commands/claude-gate.md                  /claude-gate shortcut
   skills/orchestration/SKILL.md            the two-lane flow, routing, review gate
   skills/orchestration/references/
     role-contracts.md                      duties and prompt/return contracts
