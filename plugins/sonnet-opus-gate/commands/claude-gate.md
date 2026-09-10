@@ -1,6 +1,7 @@
 ---
 description: "Run a task through the two-lane gate: build and self-verify on Sonnet, then a fresh-context Opus reviewer reviews, fixes and re-verifies before anything is done."
 argument-hint: "<the task to build>"
+model: sonnet
 ---
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 

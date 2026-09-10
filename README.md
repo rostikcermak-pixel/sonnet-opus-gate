@@ -49,8 +49,8 @@ as independent verification.
   Claude Code 2.x or newer.
 - Account access to both Sonnet and Opus. The reviewer agent is pinned to `model: opus`;
   without Opus access the gate cannot run as designed.
-- The primary session should be set to Sonnet. A skill cannot change the primary session's
-  model - that is your selection.
+- No manual model selection. The `/claude-gate` command pins the build lane to Sonnet and
+  the reviewer subagent pins itself to Opus.
 - POSIX `sh` for the install script only. Not needed if you install the plugin through
   the marketplace.
 
@@ -117,8 +117,18 @@ The shortcut is `/claude-gate`:
 ```
 
 The session then plans, builds, self-verifies, hands off to the Opus reviewer, and reports
-the combined result. Set the session to Sonnet first (`/model sonnet`) - a plugin cannot
-switch your primary model, and the Opus lane arrives through the subagent either way.
+the combined result.
+
+Both lane models are set for you. The command is pinned to `model: sonnet`, so the build
+lane runs on Sonnet whatever your session model is, and the reviewer subagent is pinned to
+`model: opus`. You do not need to touch `/model`.
+
+One limit of the command-level pin: per the Claude Code docs, it applies for the rest of
+the current turn and the session model resumes on your next prompt. So a task that
+completes in one turn is fully covered, but if you reply partway through - answering a
+clarifying question, say - that reply runs on your session model. Set Sonnet as your
+session default if you want the build lane on Sonnet across every turn. The reviewer is
+unaffected either way: a subagent's model is independent of the session's.
 
 If another plugin defines the same command name, use the namespaced form:
 
