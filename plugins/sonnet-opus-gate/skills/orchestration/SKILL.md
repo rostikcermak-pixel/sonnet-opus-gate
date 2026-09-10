@@ -10,7 +10,8 @@ Two lanes, two roles, one gate.
 
 - **Planner/Builder lane** - this session, on Sonnet. Owns requirements, architecture,
   implementation, and self-verification.
-- **Reviewer/Fixer lane** - the `reviewer` subagent, pinned to Opus, fresh context per
+- **Reviewer/Fixer lane** - the `sonnet-opus-gate:reviewer` subagent, pinned to Opus,
+  fresh context per
   invocation, full read-write tool access. Owns adversarial review, direct fixes, and
   re-verification.
 
@@ -62,7 +63,8 @@ Task size does not change the routing. A one-line diff goes through the gate.
 
 ## Handoff
 
-Invoke the reviewer through the Task/Agent tool with `subagent_type: reviewer`, once the
+Invoke the reviewer through the Task/Agent tool with
+`subagent_type: sonnet-opus-gate:reviewer`, once the
 work is complete and evidence exists. The reviewer starts with no access to this
 conversation, so the prompt is the whole briefing: state the original task verbatim, how
 to see the diff, the verification commands with their results, and any assumption made

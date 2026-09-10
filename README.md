@@ -110,11 +110,14 @@ plugins/sonnet-opus-gate/scripts/install-agents.sh --check
 
 ## Usage
 
-The shortcut is `/claude-gate`:
+The shortcut is `/sonnet-opus-gate:claude-gate`:
 
 ```
-/claude-gate add a --version flag to the install script
+/sonnet-opus-gate:claude-gate add a --version flag to the install script
 ```
+
+Plugin skills are always namespaced. The bare `/claude-gate` also works only when no other
+installed command claims that name, so the namespaced form is the reliable one.
 
 The session then plans, builds, self-verifies, hands off to the Opus reviewer, and reports
 the combined result.
@@ -129,12 +132,6 @@ completes in one turn is fully covered, but if you reply partway through - answe
 clarifying question, say - that reply runs on your session model. Set Sonnet as your
 session default if you want the build lane on Sonnet across every turn. The reviewer is
 unaffected either way: a subagent's model is independent of the session's.
-
-If another plugin defines the same command name, use the namespaced form:
-
-```
-/sonnet-opus-gate:claude-gate add a --version flag to the install script
-```
 
 You can also invoke the skill directly, without the command:
 

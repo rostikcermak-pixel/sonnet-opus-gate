@@ -13,7 +13,8 @@ The task:
 $ARGUMENTS
 
 Work the Planner/Builder lane yourself - requirements, architecture, implementation, and
-self-verification with real command output. Then hand off to the `reviewer` subagent per
+self-verification with real command output. Then hand off to the
+`sonnet-opus-gate:reviewer` subagent per
 the skill's handoff contract, and report only after that lane returns `RESULT: pass`.
 
 If the task produces no diff, handle it inline and say that no review was needed.

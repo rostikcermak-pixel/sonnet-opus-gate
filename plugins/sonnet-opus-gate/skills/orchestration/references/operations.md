@@ -4,7 +4,8 @@
 
 ## Invoking the reviewer
 
-Use the Task/Agent tool with `subagent_type: reviewer` and the five-part prompt from
+Use the Task/Agent tool with `subagent_type: sonnet-opus-gate:reviewer` and the five-part
+prompt from
 [role-contracts.md](role-contracts.md). Run it in the foreground: the gate result is what
 you need next, so there is nothing useful to do while it runs.
 
@@ -18,6 +19,11 @@ The reviewer's model is pinned to Opus in `agents/reviewer.md`. If the agent is 
 or its `model:` field is not `opus`, the gate is not in place: say so and stop rather
 than reviewing in this session. A skill cannot switch the primary session's model, so
 the Sonnet side is the user's selection, not something to assert as verified.
+
+The plugin namespace is required: a plugin's agents are registered as
+`<plugin-name>:<agent-name>`, so a bare `reviewer` fails with "Agent type 'reviewer' not
+found". The bare name applies only to a copy installed straight into an agents directory
+by the install script.
 
 Check the installed agent with:
 
