@@ -1,0 +1,15 @@
+{
+  "name": "sonnet-opus-gate",
+  "owner": {
+    "name": "rostikcermak-pixel",
+    "url": "https://github.com/rostikcermak-pixel"
+  },
+  "plugins": [
+    {
+      "name": "sonnet-opus-gate",
+      "source": "./plugins/sonnet-opus-gate",
+      "description": "Sonnet builds and verifies; a fresh-context Opus reviewer must review, fix and re-verify before anything is done.",
+      "category": "Productivity"
+    }
+  ]
+}

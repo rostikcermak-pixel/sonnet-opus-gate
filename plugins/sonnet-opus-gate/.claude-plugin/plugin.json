@@ -1,0 +1,11 @@
+{
+  "name": "sonnet-opus-gate",
+  "version": "0.1.0",
+  "description": "Two-lane Claude Code workflow: Sonnet plans, builds and self-verifies; a fresh-context Opus reviewer gates completion by reviewing, fixing and re-verifying.",
+  "homepage": "https://github.com/rostikcermak-pixel/sonnet-opus-gate#readme",
+  "repository": "https://github.com/rostikcermak-pixel/sonnet-opus-gate",
+  "license": "GPL-3.0-only",
+  "keywords": ["claude-code", "orchestration", "subagents", "code-review"],
+  "skills": "./skills/",
+  "agents": "./agents/"
+}
