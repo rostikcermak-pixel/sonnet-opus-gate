@@ -1,0 +1,4 @@
+# Keep shell scripts and plugin definition files LF on every platform.
+# CRLF breaks the sh shebang and the agent's "model: opus" pin check.
+* text=auto eol=lf
+LICENSE text eol=lf
