@@ -10,8 +10,5 @@
     "orchestration",
     "subagents",
     "code-review"
-  ],
-  "skills": "./skills/",
-  "commands": "./commands/",
-  "agents": "./agents/"
+  ]
 }
